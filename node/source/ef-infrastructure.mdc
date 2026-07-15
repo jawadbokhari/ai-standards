@@ -1,0 +1,43 @@
+---
+description: Redis, Artemis, JMS, Vault, and Socket.IO patterns for Node services
+globs: src/**/{config,libs,services}/**/*
+alwaysApply: false
+---
+
+# Dependencies
+
+| Tech | Use | Do NOT use |
+|------|-----|------------|
+| Redis | `ioredis` via `src/libs/redis.js` | node-redis, raw connections in controllers |
+| Artemis/AMQP | `rhea` via `artemis.service.js` | amqplib unless matching existing pattern |
+| JMS/STOMP | `ef-stompit` via `jms.service.js` | Custom STOMP clients |
+| Vault | `node-vault` via `vault.config.js` | Hardcoded secrets |
+| Real-time | `socket.io` via `socket.service.js` | — |
+| HTTP clients | `axios` to CIM, conversation-manager, routing engine, etc. | — |
+
+# Connection Architecture
+
+- Redis, Artemis, JMS clients initialized in `src/index.js` bootstrap after Vault creds
+- `VaultLeaseManager` / `vault.config.js` refreshes Redis and JMS credentials
+- State: Redis + in-memory maps (`datastructure.manager.js`) — no MongoDB/ORM
+
+# Redis
+
+- Setup: `src/libs/redis.js`, operations: `src/services/redis.service.js`
+- Sentinel/SSL support via config — do not create standalone Redis clients in services
+
+# Artemis / JMS
+
+- `artemis.service.js` — AMQP via rhea
+- `jms.service.js`, `pullModeList.service.js` — STOMP via ef-stompit
+- Follow existing publish/subscribe patterns; do not add parallel messaging stacks
+
+# Socket.IO
+
+- Attached in `src/index.js` after `app.listen()`
+- Business logic in `socket.service.js` — not in route handlers
+
+# Anti-patterns
+
+- Do not create `new Redis()` or AMQP connections outside established service/libs modules
+- Do not add Kafka, RabbitMQ, or alternate messaging unless platform team approves

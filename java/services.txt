@@ -1,0 +1,7 @@
+# Java microservice repo paths for sync-all.sh (one per line).
+# Paths are relative to ef-coding-standards/java/ unless absolute.
+
+../conversation-manager
+
+# Add other Java services below, e.g.:
+# ../other-java-service

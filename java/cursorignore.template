@@ -1,0 +1,26 @@
+# Java / Maven build output
+target/
+build/
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE and tooling
+.idea/
+*.iml
+*.ipr
+*.iws
+.settings/
+.classpath
+.project
+.vscode/
+
+# Logs and runtime clutter
+logs/
+*.log
+
+# OS
+.DS_Store
+
+# Compiled artifacts
+*.jar
+*.class
+bin/

@@ -1,0 +1,54 @@
+---
+description: Org-wide Node.js Express conventions for EF services
+globs: src/**/*
+alwaysApply: true
+---
+
+# Tech Stack
+
+- Node.js >= 18, Express 4.x
+- Plain JavaScript, CommonJS (`require` / `module.exports`) — do not introduce TypeScript
+- Entry: `src/index.js`; app factory: `src/libs/app.js`
+
+# Project Layout
+
+- `src/routes/` — `express.Router()`, `*.route.js`
+- `src/controllers/` — HTTP handlers, `*.controller.js`
+- `src/services/` — business logic and integrations, `*.service.js`
+- `src/models/` — domain POJOs, `*.model.js`
+- `src/middlewares/` — request/error middleware
+- `src/config/` — env validation (Joi), logger, vault
+- `src/libs/` — app bootstrap, redis client setup
+- `src/components/` — in-memory singletons (e.g. datastructure.manager.js)
+- `tests/` — mirrors `src/` layout
+
+# API Patterns
+
+- Layered: routes → controllers → services → models
+- Controllers: async handlers, `res.status().json()`, structured Winston logs
+- Logging metadata: `{ className, methodName, CID }` using `req.correlationId`
+- Errors: throw `ApiError`; `errorConverter` + `errorHandler` middleware normalize responses
+- Validation: Joi for env vars in `src/config/config.js` — not ad-hoc in routes
+
+# Middleware
+
+- `requestInterceptor` — correlation ID (`correlationId` header), tenant from FQDN or `tenantid` header
+- Attach `req.correlationId` and `req.tenantId` before controller logic
+
+# Code Style
+
+- ESLint: airbnb-base + jest + security + prettier
+- Prettier: `printWidth: 150`, `trailingComma: "none"`
+- `no-console: error` — use Winston logger
+- File naming: `agent.route.js`, `agent.controller.js`, `agent.service.js`
+
+# EF Libraries
+
+- `ef-keycloak-connect`, `ef-stompit` — use existing wrappers, do not replace
+- Multi-tenant bootstrap via CX Tenant service in `src/index.js`
+
+# Do Not
+
+- Do not add TypeScript, NestJS, or ES module `import` syntax
+- Do not bypass layered architecture (business logic in routes)
+- Do not hardcode credentials — use env + Vault

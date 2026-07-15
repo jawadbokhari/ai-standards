@@ -1,0 +1,72 @@
+---
+description: MongoDB, Redis (Jedis), and Artemis/JMS integration patterns
+globs: src/main/java/**/{config,mongo,redis,activemq,jms,vault,repository}/**/*
+alwaysApply: false
+---
+
+# Platform stack (Spring Boot 3.5.7 BOM)
+
+| Component | Version / source |
+|-----------|------------------|
+| Java | 17 |
+| Spring Boot | 3.5.x (`spring-boot-starter-parent`) |
+| MongoDB driver | `mongodb-driver-sync` 5.5.x (via `spring-boot-starter-data-mongodb`) |
+| Redis client | Jedis 6.x (explicit `jedis` dependency — not Lettuce) |
+| Artemis client | `artemis-jakarta-client` 2.40.x (via `spring-boot-starter-artemis`) |
+| MongoDB / Redis / Artemis servers | Platform deployment — confirm with ops/helm, not pinned in service `pom.xml` |
+
+Do not bump client libraries independently; align with the Spring Boot parent BOM unless platform team approves.
+
+# Dependencies
+
+| Tech | Use | Do NOT use |
+|------|-----|------------|
+| Mongo | `spring-boot-starter-data-mongodb` | Raw `MongoClient` in services |
+| Redis | `jedis` + `spring-boot-starter-data-redis` | Lettuce, Redisson |
+| JMS | `spring-boot-starter-artemis` | RabbitMQ, Kafka clients |
+
+# Connection Architecture
+
+Config classes expose Spring beans; beans delegate to client managers (`MongoClientManager`, `RedisClientManager`, `ActiveMqManager`). Never create connections outside these managers. `VaultLeaseManager` orchestrates credential renewal for all three.
+
+# MongoDB
+
+- Config: `MongoConfig` — `@EnableMongoRepositories`, `MongoTemplate`, `TenantAwareMongoDatabaseFactory`
+- Client: `MongoClientManager` — SSL, replica set, `refreshMongoClient()`
+- Properties: `spring.data.mongodb.*` + `mongodb.custom.ssl.*` / `mongodb.custom.replicaset.*`
+- Repositories: extend `MongoRepository<Entity, String>`; entities in `model/*Entity` with `@Document`
+- Custom search: interface + `*RepositoryImpl` extending `AbstractMongoSearchRepository` with `MongoFilterBuilder`
+- Multi-tenancy: DB selected from `MDC.get(Constants.TENANT_ID)` — set tenant context before DB calls
+- Recovery: `MongoDbExceptionRecoveryAspect` triggers credential renewal
+
+# Redis
+
+- Config: `RedisConfig` — beans: `Pool<Jedis>`, `DelegatingRedisConnectionFactory`, `StringRedisTemplate`
+- Client: `RedisClientManager` — sentinel/SSL support, `refreshRedisClients()`
+- Properties: `spring.redis.*` via `RedisProperties`
+- Jedis pool (primary): `try (Jedis jedis = jedisPool.getResource())` + `RedisRepository` for RedisJSON ops
+- `StringRedisTemplate`: distributed locks via `RedisDistributedLockRegistry`
+- Cache impls: `*CacheImpl` in `repository/` — inject `Pool<Jedis>`, use transactions/pipelines for atomic updates
+- Recovery: `RedisExceptionRecoveryAspect`
+
+# Artemis / JMS
+
+- Config: `JmsConfig` — `CredentialRotationConnectionFactory` wrapping `ActiveMQConnectionFactory`
+- Client: `ActiveMqManager` — stops/restarts listeners on credential rotation
+- Properties: `spring.artemis.*` + `amq.*` via `ActivemqProperties`
+- Publish: `JmsPublisher` / `ActivemqPublisher` — `JmsTemplate` with `setPubSubDomain(true)`, JSON `TextMessage`, set `JMSType` + tenant/correlation JMS properties
+- Subscribe: `@JmsListener` with durable shared subscription, `containerFactory` from `JmsConfig`, `CLIENT_ACKNOWLEDGE`
+- Recovery: `ActiveMqExceptionRecoveryAspect`
+
+# Vault / Credentials
+
+- `VaultLeaseManager` orchestrates renewal for all three backends
+- Prod: static passwords left empty; Vault provides dynamic creds
+- Do not hardcode credentials; use existing property prefixes
+
+# Anti-patterns
+
+- Do not add Lettuce, Redisson, or alternate Redis drivers
+- Do not create `new MongoClient()` / `new JedisPool()` / `new ActiveMQConnectionFactory()` outside client managers
+- Do not add `@EnableJms` manually (Artemis auto-config handles it)
+- Do not add new JMS listeners without a `containerFactory` bean from `JmsConfig`

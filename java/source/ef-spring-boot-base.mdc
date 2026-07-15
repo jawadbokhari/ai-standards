@@ -1,0 +1,38 @@
+---
+description: Org-wide Spring Boot conventions for EF microservices
+globs: src/main/java/**/*
+alwaysApply: true
+---
+
+# Tech Stack
+
+- Java 17, Spring Boot 3.5.x, Jakarta (`jakarta.*`)
+- MongoDB, Artemis/JMS, Redis — for connection patterns, see Infrastructure section
+- Reuse external domain libraries; do not redefine shared model types
+
+# Package Layout
+
+- `controller/` — REST (`@RestController`)
+- `service/` + `*ServiceImpl` — business logic
+- `repository/` — Spring Data Mongo + `*RepositoryImpl` / `*CacheImpl`
+- `model/` — Mongo `@Document` entities (`*Entity`)
+- `dto/` — REST request/response only
+- `config/` — Spring configuration beans
+- `exceptions/` — custom exceptions and `@ControllerAdvice` handlers
+
+# Dependency Injection
+
+- Constructor injection only; never field `@Autowired`
+- `@Autowired` on constructor is acceptable; implicit constructor injection also used
+- Use `ObjectFactory<T>` for prototype-scoped beans where existing code does
+
+# Lombok
+
+- DTOs/entities: `@Getter`, `@Setter`, `@NoArgsConstructor`, `@AllArgsConstructor`, `@ToString`
+- GraphQL `types/`: `@Data`, `@Builder` only (if service uses DGS)
+- Prefer existing `EfLogger` / `SafeLogger` over introducing new logging styles
+
+# Mapping
+
+- Manual mapping only (Jackson, constructors, utilities)
+- Do not introduce MapStruct

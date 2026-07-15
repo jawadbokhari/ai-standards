@@ -1,0 +1,18 @@
+---
+description: Jest test conventions for Node services
+globs: tests/**/*
+alwaysApply: false
+---
+
+# Test Stack
+
+- Jest 30 + `jest.setup.js` global mocks (Redis, axios, winston, config, uuid)
+- `supertest` for route/integration tests against Express app
+- `node-mocks-http` for controller unit tests
+
+# Style
+
+- Mirror `src/` under `tests/` — `tests/controllers/`, `tests/services/`, `tests/routes/`
+- Mock external integrations; do not connect to real Redis, Artemis, or Keycloak in unit tests
+- Scripts: `npm test`, `npm run coverage` (`-i --forceExit`)
+- Coverage output: `coverage/` with jest-sonar-reporter for SonarQube

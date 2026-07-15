@@ -1,0 +1,56 @@
+---
+description: Org-wide Angular conventions for EF front-end apps
+globs: src/**/*
+alwaysApply: true
+---
+
+# Tech Stack
+
+- Angular 14.x, TypeScript 4.8, RxJS 7
+- NgModule architecture — do not introduce standalone components unless migrating the whole app
+- SCSS for styles (project default schematic)
+
+# Project Layout
+
+- `src/app/` — feature folders (`chat-features/`, `supervisor/`, `login/`, etc.)
+- `src/app/shared/` — `SharedModule`, reusable pipes/components
+- `src/app/services/` — injectable services (`providedIn: 'root'`)
+- `src/app/models/` — domain interfaces grouped by entity
+- `src/app/interceptors/` — HTTP interceptors (e.g. auth)
+- No dedicated `core/` module — follow existing flat feature layout
+
+# State Management
+
+- Service-centric state with RxJS `Subject` / `BehaviorSubject` — no NgRx
+- Real-time via `socket.io-client` through `socketService`
+- Session/config via `sessionStorage` and `appConfigService` (`assets/config.json`)
+
+# HTTP and API
+
+- REST: central `httpService` with `apiEndpoints` map + `HttpClient`
+- Base URLs from `appConfigService.config` (GAT, SOCKET, CONVERSATION_MANAGER, etc.)
+- Auth: `AuthInterceptor` — Bearer token, `agentId` header, 401 refresh
+- GraphQL: `apollo-angular` / `GraphqlService` → conversation-manager GraphQL endpoint
+- Do not call `HttpClient` directly from components — use services
+
+# UI Libraries
+
+- Angular Material 14 + PrimeNG 14 (both used via `SharedModule`)
+- ngx-translate for i18n
+- Match surrounding component library when adding UI (Material vs PrimeNG)
+
+# Components
+
+- Selector prefix: `app-` (kebab-case)
+- Component files: `feature-name.component.ts` with PascalCase class + `Component` suffix
+- Declare in `AppModule`, `ChatModule`, or `SharedModule` — not standalone
+
+# Routing
+
+- Hash-based routing (`HashLocationStrategy`)
+- Lazy-load feature modules via `loadChildren` where existing code does
+
+# Linting and Format
+
+- TSLint + Prettier (`printWidth: 150`, `trailingComma: "none"`)
+- Do not introduce ESLint unless the project is being migrated

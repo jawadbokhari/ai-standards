@@ -1,0 +1,18 @@
+---
+description: Angular unit and BDD test conventions
+globs: src/**/*.spec.ts,tests/**/*
+alwaysApply: false
+---
+
+# Test Stack
+
+- Jest 28 + `jest-preset-angular` (not Karma/Jasmine for unit tests)
+- Setup in `setupJest.ts` — mocks localStorage, sessionStorage, crypto
+- jest-cucumber for BDD: `tests/features/*.feature` + `tests/step-definitions/*.steps.ts`
+
+# Style
+
+- Co-located `*.spec.ts` or `unit-tests/` subdirs under features
+- Mock services with Jest spies; use `TestBed.configureTestingModule` for component tests
+- Do not hit real HTTP or Socket.io in unit tests — mock `httpService`, `socketService`, `GraphqlService`
+- Scripts: `npm test`, `npm run test:bdd`, `npm run coverage`

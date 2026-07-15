@@ -1,0 +1,18 @@
+---
+description: Unit test conventions
+globs: src/test/java/**/*
+alwaysApply: false
+---
+
+# Test Stack
+
+- JUnit 5 + `@ExtendWith(MockitoExtension.class)`
+- `@Mock` dependencies, `@InjectMocks` for class under test
+- AssertJ or JUnit assertions both acceptable
+
+# Style
+
+- Prefer pure unit tests over `@SpringBootTest`
+- Use `@Nested` / `@DisplayName` for larger test classes
+- Mirror naming: `FooServiceImpl` → `FooServiceImplTest`
+- Cucumber exists for BDD; use only when adding feature-level scenarios

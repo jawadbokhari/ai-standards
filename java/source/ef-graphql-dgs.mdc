@@ -1,0 +1,21 @@
+---
+description: Netflix DGS GraphQL patterns
+globs: src/main/java/**/resolver/**/*,src/main/java/**/types/**/*
+alwaysApply: false
+---
+
+# DGS Conventions
+
+- `@DgsComponent` + `@DgsQuery` in `resolver/*QueryResolver`
+- Delegate to service layer; return `DataFetcherResult<T>`
+- Use `@InputArgument` for filter, search, pagination, sort args
+- `@DgsTypeResolver` for union/interface resolution in `types/resolvers/`
+
+# Search Pipeline
+
+- `FilterInput` → `MongoFilterBuilder` → `MongoSearchRepository`
+- Use `GraphqlUtils` for pagination and sort helpers
+
+# Scope
+
+- Read-only API — no `@DgsMutation` unless explicitly requested
