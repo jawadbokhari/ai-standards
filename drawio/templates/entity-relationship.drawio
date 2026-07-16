@@ -1,0 +1,130 @@
+<mxfile host="app.diagrams.net" version="21.0.0">
+  <diagram name="Entity Relationship" id="er-template">
+    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="er-title" value="[Entity Relationship / Data Model Title]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=18;fontStyle=1;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="727" height="40" as="geometry"/>
+        </mxCell>
+
+        <!--
+          Each entity is a swimlane container. The swimlane header = entity name.
+          Attribute rows are children of the swimlane, positioned relative to
+          the container's top-left corner (below the startSize=30 header).
+          This keeps entities moveable as a unit.
+          Valid ER arrow types: ERone, ERmany, ERmandOne, ERzeroToOne, ERzeroToMany, ERmanyToMany.
+          Note: ERmanyToOne is NOT valid — use ERmany+ERmandOne instead.
+        -->
+
+        <!-- Entity 1 -->
+        <mxCell id="er-e1" value="[Entity A]&#xa;(e.g. Conversation)" style="swimlane;startSize=40;fillColor=#E3F2FD;strokeColor=#1565C0;fontColor=#1565C0;fontStyle=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="220" height="210" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e1-pk" value="id : UUID (PK)" style="text;html=1;strokeColor=#1565C0;fillColor=#DDEEFF;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontStyle=1;" vertex="1" parent="er-e1">
+          <mxGeometry x="0" y="0" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e1-a1" value="  channel_id : UUID (FK)" style="text;html=1;strokeColor=#1565C0;fillColor=#ffffff;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="er-e1">
+          <mxGeometry x="0" y="30" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e1-a2" value="  status : ENUM" style="text;html=1;strokeColor=#1565C0;fillColor=#ffffff;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="er-e1">
+          <mxGeometry x="0" y="60" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e1-a3" value="  created_at : TIMESTAMP" style="text;html=1;strokeColor=#1565C0;fillColor=#ffffff;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="er-e1">
+          <mxGeometry x="0" y="90" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e1-a4" value="  updated_at : TIMESTAMP" style="text;html=1;strokeColor=#1565C0;fillColor=#ffffff;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="er-e1">
+          <mxGeometry x="0" y="120" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e1-a5" value="  [Add attribute here]" style="text;html=1;strokeColor=#1565C0;fillColor=#F5F5FF;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontStyle=2;" vertex="1" parent="er-e1">
+          <mxGeometry x="0" y="150" width="220" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Entity 2 -->
+        <mxCell id="er-e2" value="[Entity B]&#xa;(e.g. Customer)" style="swimlane;startSize=40;fillColor=#E3F2FD;strokeColor=#1565C0;fontColor=#1565C0;fontStyle=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="527" y="160" width="220" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e2-pk" value="id : UUID (PK)" style="text;html=1;strokeColor=#1565C0;fillColor=#DDEEFF;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontStyle=1;" vertex="1" parent="er-e2">
+          <mxGeometry x="0" y="0" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e2-a1" value="  name : VARCHAR(255)" style="text;html=1;strokeColor=#1565C0;fillColor=#ffffff;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="er-e2">
+          <mxGeometry x="0" y="30" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e2-a2" value="  email : VARCHAR(255)" style="text;html=1;strokeColor=#1565C0;fillColor=#ffffff;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="er-e2">
+          <mxGeometry x="0" y="60" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e2-a3" value="  phone : VARCHAR(50)" style="text;html=1;strokeColor=#1565C0;fillColor=#ffffff;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="er-e2">
+          <mxGeometry x="0" y="90" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e2-a4" value="  [Add attribute here]" style="text;html=1;strokeColor=#1565C0;fillColor=#F5F5FF;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontStyle=2;" vertex="1" parent="er-e2">
+          <mxGeometry x="0" y="120" width="220" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Entity 3 (junction / child entity) -->
+        <mxCell id="er-e3" value="[Entity C]&#xa;(e.g. Message)" style="swimlane;startSize=40;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#6A1B9A;fontStyle=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="303" y="520" width="220" height="210" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e3-pk" value="id : UUID (PK)" style="text;html=1;strokeColor=#6A1B9A;fillColor=#F0E0FF;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontStyle=1;" vertex="1" parent="er-e3">
+          <mxGeometry x="0" y="0" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e3-a1" value="  conversation_id : UUID (FK)" style="text;html=1;strokeColor=#6A1B9A;fillColor=#ffffff;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="er-e3">
+          <mxGeometry x="0" y="30" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e3-a2" value="  customer_id : UUID (FK)" style="text;html=1;strokeColor=#6A1B9A;fillColor=#ffffff;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="er-e3">
+          <mxGeometry x="0" y="60" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e3-a3" value="  content : TEXT" style="text;html=1;strokeColor=#6A1B9A;fillColor=#ffffff;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="er-e3">
+          <mxGeometry x="0" y="90" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e3-a4" value="  sent_at : TIMESTAMP" style="text;html=1;strokeColor=#6A1B9A;fillColor=#ffffff;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="er-e3">
+          <mxGeometry x="0" y="120" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-e3-a5" value="  [Add attribute here]" style="text;html=1;strokeColor=#6A1B9A;fillColor=#F5F5FF;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontStyle=2;" vertex="1" parent="er-e3">
+          <mxGeometry x="0" y="150" width="220" height="30" as="geometry"/>
+        </mxCell>
+
+        <!--
+          Relationships — all edges have parent="1".
+          Arrow syntax: startArrow = side closer to source entity, endArrow = side closer to target entity.
+          Valid values: ERone, ERmandOne, ERmany, ERzeroToOne, ERzeroToMany, ERmanyToMany
+          One-to-many (Entity A has many Entity C): startArrow=ERmandOne, endArrow=ERmany
+          Many-to-one (Entity C belongs to Entity B): startArrow=ERmany, endArrow=ERmandOne
+        -->
+
+        <!-- Entity A (Conversation) 1:N Entity C (Message) — one conversation has many messages -->
+        <mxCell id="er-rel-1" value="has" style="edgeStyle=entityRelationEdgeStyle;html=1;
+          startArrow=ERmandOne;endArrow=ERmany;
+          exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;
+          strokeWidth=1.5;fontFamily=Helvetica;fontSize=9;fontStyle=2;" edge="1" source="er-e1" target="er-e3" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Entity B (Customer) 1:N Entity C (Message) — one customer sends many messages -->
+        <mxCell id="er-rel-2" value="sends" style="edgeStyle=entityRelationEdgeStyle;html=1;
+          startArrow=ERmandOne;endArrow=ERmany;
+          exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;
+          strokeWidth=1.5;fontFamily=Helvetica;fontSize=9;fontStyle=2;" edge="1" source="er-e2" target="er-e3" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Entity A N:1 Entity B — many conversations belong to one customer -->
+        <mxCell id="er-rel-3" value="belongs to" style="edgeStyle=entityRelationEdgeStyle;html=1;
+          startArrow=ERmany;endArrow=ERmandOne;
+          exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;
+          strokeWidth=1.5;fontFamily=Helvetica;fontSize=9;fontStyle=2;" edge="1" source="er-e1" target="er-e2" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Notation guide -->
+        <mxCell id="er-note" value="PK = Primary Key · FK = Foreign Key · ERmandOne (|) = mandatory one · ERmany (crow foot) = many · ERzeroToOne (o|) = optional one" style="text;html=1;strokeColor=none;fillColor=#E8F5E9;align=center;verticalAlign=middle;rounded=1;fontFamily=Helvetica;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="840" width="667" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er-add-note" value="To add an attribute: copy an attribute row mxCell, set a new unique id, increment y by 30, set parent to the entity container id." style="text;html=1;strokeColor=none;fillColor=#FFF3E0;align=left;verticalAlign=middle;rounded=1;spacingLeft=6;fontFamily=Helvetica;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="880" width="667" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

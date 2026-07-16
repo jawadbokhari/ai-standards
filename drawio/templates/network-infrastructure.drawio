@@ -1,0 +1,101 @@
+<mxfile host="app.diagrams.net" version="21.0.0">
+  <diagram name="Network Infrastructure" id="ni-template">
+    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="ni-title" value="[Network / Infrastructure Title]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=18;fontStyle=1;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="727" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Internet zone -->
+        <mxCell id="ni-zone-internet" value="Internet" style="swimlane;startSize=25;fillColor=#FAFAFA;strokeColor=#757575;fontColor=#424242;fontStyle=1;fontSize=10;fontFamily=Helvetica;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="80" width="727" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-client-browser" value="[Client Browser / App]" style="shape=mxgraph.network.workstation;html=1;whiteSpace=wrap;fillColor=#E3F2FD;strokeColor=#1565C0;fontFamily=Helvetica;fontSize=9;" vertex="1" parent="ni-zone-internet">
+          <mxGeometry x="80" y="30" width="80" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-internet-cloud" value="Internet" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#757575;fontFamily=Helvetica;fontSize=9;fontStyle=2;" vertex="1" parent="ni-zone-internet">
+          <mxGeometry x="300" y="25" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- DMZ / Load Balancer zone -->
+        <mxCell id="ni-zone-dmz" value="DMZ / Ingress" style="swimlane;startSize=25;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#E65100;fontStyle=1;fontSize=10;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="50" y="190" width="727" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-lb" value="[Load Balancer]" style="shape=mxgraph.network.load_balancer;html=1;whiteSpace=wrap;fillColor=#FFF3E0;strokeColor=#E65100;fontFamily=Helvetica;fontSize=9;" vertex="1" parent="ni-zone-dmz">
+          <mxGeometry x="80" y="25" width="80" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-ingress" value="[Ingress Controller]&#xa;(APISIX / Nginx)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#E65100;fontFamily=Helvetica;fontSize=9;" vertex="1" parent="ni-zone-dmz">
+          <mxGeometry x="270" y="30" width="170" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-ssl" value="[SSL Termination]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#E65100;fontFamily=Helvetica;fontSize=9;" vertex="1" parent="ni-zone-dmz">
+          <mxGeometry x="490" y="30" width="150" height="45" as="geometry"/>
+        </mxCell>
+
+        <!-- Kubernetes Cluster -->
+        <mxCell id="ni-k8s-cluster" value="Kubernetes Cluster" style="swimlane;startSize=25;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#6A1B9A;fontStyle=1;fontSize=10;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="50" y="310" width="727" height="420" as="geometry"/>
+        </mxCell>
+
+        <!-- Namespace 1 -->
+        <mxCell id="ni-ns1" value="Namespace: [cx-core]" style="swimlane;startSize=25;dashed=1;strokeColor=#6A1B9A;fillColor=#F9F0FF;fontColor=#6A1B9A;fontStyle=2;fontSize=9;fontFamily=Helvetica;" vertex="1" parent="ni-k8s-cluster">
+          <mxGeometry x="20" y="35" width="320" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-pod-1" value="Pod: [Service A]&#xa;Port: 8080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#6A1B9A;fontFamily=Helvetica;fontSize=9;" vertex="1" parent="ni-ns1">
+          <mxGeometry x="20" y="40" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-pod-2" value="Pod: [Service B]&#xa;Port: 8081" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#6A1B9A;fontFamily=Helvetica;fontSize=9;" vertex="1" parent="ni-ns1">
+          <mxGeometry x="170" y="40" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-svc-1" value="Service&#xa;ClusterIP:8080" style="shape=mxgraph.network.server;html=1;whiteSpace=wrap;fillColor=#E8F5E9;strokeColor=#2E7D32;fontFamily=Helvetica;fontSize=8;" vertex="1" parent="ni-ns1">
+          <mxGeometry x="80" y="110" width="60" height="45" as="geometry"/>
+        </mxCell>
+
+        <!-- Namespace 2 -->
+        <mxCell id="ni-ns2" value="Namespace: [channels]" style="swimlane;startSize=25;dashed=1;strokeColor=#6A1B9A;fillColor=#F9F0FF;fontColor=#6A1B9A;fontStyle=2;fontSize=9;fontFamily=Helvetica;" vertex="1" parent="ni-k8s-cluster">
+          <mxGeometry x="380" y="35" width="320" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-pod-3" value="Pod: [Channel A]&#xa;Port: 9000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#6A1B9A;fontFamily=Helvetica;fontSize=9;" vertex="1" parent="ni-ns2">
+          <mxGeometry x="20" y="40" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-pod-4" value="Pod: [Channel B]&#xa;Port: 9001" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#6A1B9A;fontFamily=Helvetica;fontSize=9;" vertex="1" parent="ni-ns2">
+          <mxGeometry x="170" y="40" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Persistent storage in cluster -->
+        <mxCell id="ni-ns-data" value="Namespace: [data]" style="swimlane;startSize=25;dashed=1;strokeColor=#2E7D32;fillColor=#F0FFF0;fontColor=#2E7D32;fontStyle=2;fontSize=9;fontFamily=Helvetica;" vertex="1" parent="ni-k8s-cluster">
+          <mxGeometry x="20" y="235" width="680" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-db" value="[PostgreSQL]&#xa;PVC: db-storage" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontFamily=Helvetica;fontSize=9;" vertex="1" parent="ni-ns-data">
+          <mxGeometry x="40" y="40" width="100" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-redis" value="[Redis]&#xa;Port: 6379" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontFamily=Helvetica;fontSize=9;" vertex="1" parent="ni-ns-data">
+          <mxGeometry x="190" y="40" width="100" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-minio" value="[MinIO]&#xa;Port: 9000" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontFamily=Helvetica;fontSize=9;" vertex="1" parent="ni-ns-data">
+          <mxGeometry x="340" y="40" width="100" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="ni-queue" value="[Message Queue]&#xa;Port: 5672" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontFamily=Helvetica;fontSize=9;" vertex="1" parent="ni-ns-data">
+          <mxGeometry x="490" y="40" width="120" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges: all with explicit connection anchors -->
+        <!-- client (bottom) → lb (top): vertical T→B across Internet→DMZ zone boundary -->
+        <mxCell id="ni-edge-client-lb" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=9;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="ni-client-browser" target="ni-lb" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- lb (right) → ingress (left): horizontal L→R within DMZ zone -->
+        <mxCell id="ni-edge-lb-ingress" value="HTTPS:443" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=9;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="ni-lb" target="ni-ingress" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- ingress (bottom) → pod-1 (top): vertical T→B across DMZ→K8s zone boundary -->
+        <mxCell id="ni-edge-ingress-pod1" value="HTTP:8080" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=9;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="ni-ingress" target="ni-pod-1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

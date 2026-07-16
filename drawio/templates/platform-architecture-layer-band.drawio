@@ -1,0 +1,240 @@
+<mxfile host="Electron">
+  <diagram name="Headless Platform Architecture" id="ef-headless-platform-arch">
+    <mxGraphModel dx="2178" dy="1209" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="0" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="canvas-bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;" vertex="1">
+          <mxGeometry height="1210" width="2118" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=20;fontStyle=1;fontColor=#282828;" value="ExpertFlow CX Headless Platform Architecture &amp;amp; Extensibility Interfaces" vertex="1">
+          <mxGeometry height="36" width="1400" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="band-ai-orch" parent="1" style="swimlane;startSize=30;fillColor=#FFFFFF;strokeColor=#1a50a3;strokeWidth=3;fontColor=#1a50a3;fontStyle=1;fontSize=18;fontFamily=Helvetica;verticalAlign=top;spacingLeft=32;" value="Layer 1 — AI Orchestration: Cross-Cutting Coordination for Automation, Copilots &amp; AI Agents" vertex="1">
+          <mxGeometry height="168" width="2020" x="40" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="icon-band-ai-orch" parent="band-ai-orch" style="shape=image;html=1;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224%22%20viewBox%3D%220%20-960%20960%20960%22%20width%3D%2224%22%3E%3Cpath%20fill%3D%22%231a50a3%22%20d%3D%22M160-360q-50%200-85-35t-35-85q0-50%2035-85t85-35v-80q0-33%2023.5-56.5T240-760h120q0-50%2035-85t85-35q50%200%2085%2035t35%2085h120q33%200%2056.5%2023.5T800-680v80q50%200%2085%2035t35%2085q0%2050-35%2085t-85%2035v160q0%2033-23.5%2056.5T720-120H240q-33%200-56.5-23.5T160-200v-160Zm242.5-97.5Q420-475%20420-500t-17.5-42.5Q385-560%20360-560t-42.5%2017.5Q300-525%20300-500t17.5%2042.5Q335-440%20360-440t42.5-17.5Zm240%200Q660-475%20660-500t-17.5-42.5Q625-560%20600-560t-42.5%2017.5Q540-525%20540-500t17.5%2042.5Q575-440%20600-440t42.5-17.5ZM320-280h320v-80H320v80Zm-80%2080h480v-480H240v480Zm240-240Z%22%2F%3E%3C%2Fsvg%3E;" vertex="1">
+          <mxGeometry height="18" width="18" x="8" y="6" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-bot" parent="band-ai-orch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;strokeWidth=2;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=12;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Bot / Copilot Orchestration&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Decides when automation vs.&lt;br&gt;a human handles the interaction&lt;/font&gt;" vertex="1">
+          <mxGeometry height="102" width="460" x="30" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-handoff" parent="band-ai-orch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;strokeWidth=2;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=12;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Human ↔ AI Handoff&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Seamless transfer of context&lt;br&gt;between AI and human agents&lt;/font&gt;" vertex="1">
+          <mxGeometry height="102" width="460" x="530" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-tools" parent="band-ai-orch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;strokeWidth=2;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=12;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Tool &amp; Function Calling&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Invokes core services &amp; external&lt;br&gt;systems on the AI&#39;s behalf&lt;/font&gt;" vertex="1">
+          <mxGeometry height="102" width="460" x="1030" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-abstraction" parent="band-ai-orch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;strokeWidth=2;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=12;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;AI Provider Abstraction&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Routes to any LLM, ASR/TTS,&lt;br&gt;or agent framework&lt;/font&gt;" vertex="1">
+          <mxGeometry height="102" width="460" x="1530" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="band-core" parent="1" style="swimlane;startSize=30;fillColor=#FFFFFF;strokeColor=#1a50a3;strokeWidth=3;fontColor=#1a50a3;fontStyle=1;fontSize=18;fontFamily=Helvetica;verticalAlign=top;spacingLeft=32;" value="Layer 2 — Headless Core Platform: Core Services (Channel- and UI-Agnostic)" vertex="1">
+          <mxGeometry height="205" width="2020" x="40" y="336" as="geometry" />
+        </mxCell>
+        <mxCell id="icon-band-core" parent="band-core" style="shape=image;html=1;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224%22%20viewBox%3D%220%20-960%20960%20960%22%20width%3D%2224%22%3E%3Cpath%20fill%3D%22%231a50a3%22%20d%3D%22M300-720q-25%200-42.5%2017.5T240-660q0%2025%2017.5%2042.5T300-600q25%200%2042.5-17.5T360-660q0-25-17.5-42.5T300-720Zm0%20400q-25%200-42.5%2017.5T240-260q0%2025%2017.5%2042.5T300-200q25%200%2042.5-17.5T360-260q0-25-17.5-42.5T300-320ZM160-840h640q17%200%2028.5%2011.5T840-800v280q0%2017-11.5%2028.5T800-480H160q-17%200-28.5-11.5T120-520v-280q0-17%2011.5-28.5T160-840Zm40%2080v200h560v-200H200Zm-40%20320h640q17%200%2028.5%2011.5T840-400v280q0%2017-11.5%2028.5T800-80H160q-17%200-28.5-11.5T120-120v-280q0-17%2011.5-28.5T160-440Zm40%2080v200h560v-200H200Zm0-400v200-200Zm0%20400v200-200Z%22%2F%3E%3C%2Fsvg%3E;" vertex="1">
+          <mxGeometry height="18" width="18" x="8" y="6" as="geometry" />
+        </mxCell>
+        <mxCell id="core-identity" parent="band-core" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=11;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Identity, Access &amp; Multi-Tenancy&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Authentication, RBAC,&lt;br&gt;tenant isolation&lt;/font&gt;" vertex="1">
+          <mxGeometry height="132" width="244" x="30" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="core-conv" parent="band-core" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=11;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Conversation &amp; Session Orchestration&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Interaction state and&lt;br&gt;context, channel-agnostic&lt;/font&gt;" vertex="1">
+          <mxGeometry height="132" width="244" x="314" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="core-routing" parent="band-core" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=11;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Routing &amp; Work Distribution&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Skill / queue / priority&lt;br&gt;routing, SLA management&lt;/font&gt;" vertex="1">
+          <mxGeometry height="132" width="244" x="598" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="core-presence" parent="band-core" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=11;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Resource &amp; Presence Management&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Agent and bot capacity,&lt;br&gt;skills, availability&lt;/font&gt;" vertex="1">
+          <mxGeometry height="132" width="244" x="882" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="core-context" parent="band-core" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=11;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Customer Context Service&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Unified customer view from&lt;br&gt;connected systems&lt;/font&gt;" vertex="1">
+          <mxGeometry height="132" width="244" x="1166" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="core-workflow" parent="band-core" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=11;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Workflow &amp; Process Orchestration&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;No-code flow engine —&lt;br&gt;IVR, chat, campaign logic&lt;/font&gt;" vertex="1">
+          <mxGeometry height="132" width="244" x="1450" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="core-campaign" parent="band-core" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=11;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Engagement &amp; Campaign Orchestration&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Proactive &amp; outbound&lt;br&gt;engagement&lt;/font&gt;" vertex="1">
+          <mxGeometry height="132" width="244" x="1734" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="zone-channels" parent="1" style="swimlane;startSize=30;fillColor=#FFFFFF;strokeColor=#c5c5c5;strokeWidth=3;fontColor=#555555;fontStyle=1;fontSize=18;fontFamily=Helvetica;verticalAlign=top;spacingLeft=32;" value="Layer 3A — Channel Connector Framework" vertex="1">
+          <mxGeometry height="350" width="475" x="40" y="589" as="geometry" />
+        </mxCell>
+        <mxCell id="icon-zone-channels" parent="zone-channels" style="shape=image;html=1;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224%22%20viewBox%3D%220%20-960%20960%20960%22%20width%3D%2224%22%3E%3Cpath%20fill%3D%22%23555555%22%20d%3D%22M80-80v-720q0-33%2023.5-56.5T160-880h640q33%200%2056.5%2023.5T880-800v480q0%2033-23.5%2056.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46%200v-480%20480Z%22%2F%3E%3C%2Fsvg%3E;" vertex="1">
+          <mxGeometry height="18" width="18" x="8" y="6" as="geometry" />
+        </mxCell>
+        <mxCell id="ch-framework" parent="zone-channels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=12;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Channel Connector Framework&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Normalizes inbound/outbound&lt;br&gt;across any messaging channel&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="395" x="30" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ch-whatsapp" parent="zone-channels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="WhatsApp" vertex="1">
+          <mxGeometry height="44" width="120" x="30" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ch-messenger" parent="zone-channels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="Messenger" vertex="1">
+          <mxGeometry height="44" width="120" x="165" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ch-viber" parent="zone-channels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="Viber" vertex="1">
+          <mxGeometry height="44" width="125" x="300" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ch-telegram" parent="zone-channels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="Telegram" vertex="1">
+          <mxGeometry height="44" width="120" x="30" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="ch-sms" parent="zone-channels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="SMS" vertex="1">
+          <mxGeometry height="44" width="120" x="165" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="ch-custom" parent="zone-channels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#929292;fontFamily=Helvetica;fontSize=11;fontStyle=2;align=center;" value="+ Custom Channel&#xa;via SDK" vertex="1">
+          <mxGeometry height="44" width="125" x="300" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="ch-note" parent="zone-channels" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontFamily=Helvetica;fontSize=11;fontStyle=2;whiteSpace=wrap;fontColor=#929292;" value="Plug in any messaging channel via the published Connector SDK — no core changes required." vertex="1">
+          <mxGeometry height="48" width="395" x="30" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="zone-voice" parent="1" style="swimlane;startSize=30;fillColor=#FFFFFF;strokeColor=#c5c5c5;strokeWidth=3;fontColor=#555555;fontStyle=1;fontSize=18;fontFamily=Helvetica;verticalAlign=top;spacingLeft=32;" value="Layer 3B — Voice Interface (Built-in or Third-Party)" vertex="1">
+          <mxGeometry height="350" width="475" x="555" y="589" as="geometry" />
+        </mxCell>
+        <mxCell id="icon-zone-voice" parent="zone-voice" style="shape=image;html=1;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224%22%20viewBox%3D%220%20-960%20960%20960%22%20width%3D%2224%22%3E%3Cpath%20fill%3D%22%23555555%22%20d%3D%22M798-120q-125%200-247-54.5T329-329Q229-429%20174.5-551T120-798q0-18%2012-30t30-12h162q14%200%2025%209.5t13%2022.5l26%20140q2%2016-1%2027t-11%2019l-97%2098q20%2037%2047.5%2071.5T387-386q31%2031%2065%2057.5t72%2048.5l94-94q9-9%2023.5-13.5T670-390l138%2028q14%204%2023%2014.5t9%2023.5v162q0%2018-12%2030t-30%2012ZM241-600l66-66-17-94h-89q5%2041%2014%2081t26%2079Zm358%20358q39%2017%2079.5%2027t81.5%2013v-88l-94-19-67%2067ZM241-600Zm358%20358Z%22%2F%3E%3C%2Fsvg%3E;" vertex="1">
+          <mxGeometry height="18" width="18" x="8" y="6" as="geometry" />
+        </mxCell>
+        <mxCell id="voice-builtin" parent="zone-voice" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=12;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Built-in Voice Platform&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Media server, ASR, TTS,&lt;br&gt;call recording&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="395" x="30" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="voice-or" parent="zone-voice" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontStyle=3;fontColor=#555555;" value="— OR —" vertex="1">
+          <mxGeometry height="20" width="395" x="30" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="voice-3rdparty" parent="zone-voice" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=12;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Third-Party Voice Platform&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;e.g. Cisco CCE/CCX, Genesys&lt;br&gt;integrated via CTI/SIP&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="395" x="30" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="voice-note" parent="zone-voice" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontFamily=Helvetica;fontSize=11;fontStyle=2;whiteSpace=wrap;fontColor=#929292;" value="Swappable via the Voice Integration Interface (SIP • WebRTC • CTI) — the inbuilt voice platform is optional, not mandatory." vertex="1">
+          <mxGeometry height="50" width="395" x="30" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="zone-ai" parent="1" style="swimlane;startSize=30;fillColor=#FFFFFF;strokeColor=#c5c5c5;strokeWidth=3;fontColor=#555555;fontStyle=1;fontSize=18;fontFamily=Helvetica;verticalAlign=top;spacingLeft=32;" value="Layer 3C — AI Provider Ecosystem" vertex="1">
+          <mxGeometry height="350" width="475" x="1070" y="589" as="geometry" />
+        </mxCell>
+        <mxCell id="icon-zone-ai" parent="zone-ai" style="shape=image;html=1;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224%22%20viewBox%3D%220%20-960%20960%20960%22%20width%3D%2224%22%3E%3Cpath%20fill%3D%22%23555555%22%20d%3D%22M240-80v-172q-57-52-88.5-121.5T120-520q0-150%20105-255t255-105q125%200%20221.5%2073.5T827-615l52%20205q5%2019-7%2034.5T840-360h-80v120q0%2033-23.5%2056.5T680-160h-80v80h-80v-160h160v-200h108l-38-155q-23-91-98-148t-172-57q-116%200-198%2081t-82%20197q0%2060%2024.5%20114t69.5%2096l26%2024v208h-80Zm254-360Zm-54%2080h80l6-50q8-3%2014.5-7t11.5-9l46%2020%2040-68-40-30q2-8%202-16t-2-16l40-30-40-68-46%2020q-5-5-11.5-9t-14.5-7l-6-50h-80l-6%2050q-8%203-14.5%207t-11.5%209l-46-20-40%2068%2040%2030q-2%208-2%2016t2%2016l-40%2030%2040%2068%2046-20q5%205%2011.5%209t14.5%207l6%2050Zm-2.5-117.5Q420-495%20420-520t17.5-42.5Q455-580%20480-580t42.5%2017.5Q540-545%20540-520t-17.5%2042.5Q505-460%20480-460t-42.5-17.5Z%22%2F%3E%3C%2Fsvg%3E;" vertex="1">
+          <mxGeometry height="18" width="18" x="8" y="6" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-llm" parent="zone-ai" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="LLM Providers&#xa;OpenAI, Llama, Mistral…" vertex="1">
+          <mxGeometry height="60" width="185" x="30" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-asrtts" parent="zone-ai" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="ASR/TTS Providers&#xa;Whisper, Piper, Azure…" vertex="1">
+          <mxGeometry height="60" width="185" x="240" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-3rdparty" parent="zone-ai" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="Third-Party AI Orchestrator / Bring-Your-Own Agent Framework" vertex="1">
+          <mxGeometry height="60" width="395" x="30" y="122" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-kb" parent="zone-ai" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="Knowledge Bases / Vector Stores&#xa;RAG sources" vertex="1">
+          <mxGeometry height="62" width="395" x="30" y="196" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-note" parent="zone-ai" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontFamily=Helvetica;fontSize=11;fontStyle=2;whiteSpace=wrap;fontColor=#929292;" value="Pluggable via the AI Provider Plugin Contract, driven by the AI / EI Orchestration Layer above — bring any LLM, ASR/TTS provider, knowledge source, or agent framework." vertex="1">
+          <mxGeometry height="65" width="395" x="30" y="272" as="geometry" />
+        </mxCell>
+        <mxCell id="zone-crm" parent="1" style="swimlane;startSize=30;fillColor=#FFFFFF;strokeColor=#c5c5c5;strokeWidth=3;fontColor=#555555;fontStyle=1;fontSize=18;fontFamily=Helvetica;verticalAlign=top;spacingLeft=32;" value="Layer 3D — CRM &amp; Business System Connectors" vertex="1">
+          <mxGeometry height="350" width="475" x="1585" y="589" as="geometry" />
+        </mxCell>
+        <mxCell id="icon-zone-crm" parent="zone-crm" style="shape=image;html=1;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224%22%20viewBox%3D%220%20-960%20960%20960%22%20width%3D%2224%22%3E%3Cpath%20fill%3D%22%23555555%22%20d%3D%22M155-75q-35-35-35-85t35-85q35-35%2085-35%2014%200%2026%203t23%208l57-71q-28-31-39-70t-5-78l-81-27q-17%2025-43%2040t-58%2015q-50%200-85-35T0-580q0-50%2035-85t85-35q50%200%2085%2035t35%2085v8l81%2028q20-36%2053.5-61t75.5-32v-87q-39-11-64.5-42.5T360-840q0-50%2035-85t85-35q50%200%2085%2035t35%2085q0%2042-26%2073.5T510-724v87q42%207%2075.5%2032t53.5%2061l81-28v-8q0-50%2035-85t85-35q50%200%2085%2035t35%2085q0%2050-35%2085t-85%2035q-32%200-58.5-15T739-515l-81%2027q6%2039-5%2077.5T614-340l57%2070q11-5%2023-7.5t26-2.5q50%200%2085%2035t35%2085q0%2050-35%2085t-85%2035q-50%200-85-35t-35-85q0-20%206.5-38.5T624-232l-57-71q-41%2023-87.5%2023T392-303l-56%2071q11%2015%2017.5%2033.5T360-160q0%2050-35%2085t-85%2035q-50%200-85-35Zm-35-465q17%200%2028.5-11.5T160-580q0-17-11.5-28.5T120-620q-17%200-28.5%2011.5T80-580q0%2017%2011.5%2028.5T120-540Zm148.5%20408.5Q280-143%20280-160t-11.5-28.5Q257-200%20240-200t-28.5%2011.5Q200-177%20200-160t11.5%2028.5Q223-120%20240-120t28.5-11.5Zm240-680Q520-823%20520-840t-11.5-28.5Q497-880%20480-880t-28.5%2011.5Q440-857%20440-840t11.5%2028.5Q463-800%20480-800t28.5-11.5ZM480-360q42%200%2071-29t29-71q0-42-29-71t-71-29q-42%200-71%2029t-29%2071q0%2042%2029%2071t71%2029Zm268.5%20228.5Q760-143%20760-160t-11.5-28.5Q737-200%20720-200t-28.5%2011.5Q680-177%20680-160t11.5%2028.5Q703-120%20720-120t28.5-11.5Zm120-420Q880-563%20880-580t-11.5-28.5Q857-620%20840-620t-28.5%2011.5Q800-597%20800-580t11.5%2028.5Q823-540%20840-540t28.5-11.5ZM480-840ZM120-580Zm360%20120Zm360-120ZM240-160Zm480%200Z%22%2F%3E%3C%2Fsvg%3E;" vertex="1">
+          <mxGeometry height="18" width="18" x="8" y="6" as="geometry" />
+        </mxCell>
+        <mxCell id="crm-framework" parent="zone-crm" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECF3FF;strokeColor=#1a50a3;fontColor=#1a50a3;fontFamily=Helvetica;fontSize=12;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;CRM Connector Framework&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Unified customer profile&lt;br&gt;across connected systems&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="395" x="30" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="crm-sf" parent="zone-crm" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="Salesforce" vertex="1">
+          <mxGeometry height="54" width="120" x="30" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="crm-dynamics" parent="zone-crm" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="MS Dynamics 365" vertex="1">
+          <mxGeometry height="54" width="120" x="165" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="crm-custom" parent="zone-crm" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="Custom / Legacy CRM" vertex="1">
+          <mxGeometry height="54" width="125" x="300" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="crm-ticketing" parent="zone-crm" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="Ticketing / ERP" vertex="1">
+          <mxGeometry height="54" width="120" x="30" y="214" as="geometry" />
+        </mxCell>
+        <mxCell id="crm-dwh" parent="zone-crm" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=11;align=center;" value="Data Warehouse" vertex="1">
+          <mxGeometry height="54" width="120" x="165" y="214" as="geometry" />
+        </mxCell>
+        <mxCell id="crm-any" parent="zone-crm" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#929292;fontFamily=Helvetica;fontSize=11;fontStyle=2;align=center;" value="+ Any REST/SOAP&#xa;system via SDK" vertex="1">
+          <mxGeometry height="54" width="125" x="300" y="214" as="geometry" />
+        </mxCell>
+        <mxCell id="crm-note" parent="zone-crm" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontFamily=Helvetica;fontSize=11;fontStyle=2;whiteSpace=wrap;fontColor=#929292;" value="Plug in via the CRM Connector SDK — no core changes required." vertex="1">
+          <mxGeometry height="46" width="395" x="30" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="band-data" parent="1" style="swimlane;startSize=30;fillColor=#FFFFFF;strokeColor=#26c98c;strokeWidth=3;fontColor=#1B8F63;fontStyle=1;fontSize=18;fontFamily=Helvetica;verticalAlign=top;spacingLeft=32;" value="Layer 4 — Data, Eventing &amp; Observability (Exposed via API)" vertex="1">
+          <mxGeometry height="178" width="2020" x="40" y="987" as="geometry" />
+        </mxCell>
+        <mxCell id="icon-band-data" parent="band-data" style="shape=image;html=1;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224%22%20viewBox%3D%220%20-960%20960%20960%22%20width%3D%2224%22%3E%3Cpath%20fill%3D%22%231B8F63%22%20d%3D%22M480-120q-151%200-255.5-46.5T120-280v-400q0-66%20105.5-113T480-840q149%200%20254.5%2047T840-680v400q0%2067-104.5%20113.5T480-120Zm0-479q89%200%20179-25.5T760-679q-11-29-100.5-55T480-760q-91%200-178.5%2025.5T200-679q14%2030%20101.5%2055T480-599Zm0%20199q42%200%2081-4t74.5-11.5q35.5-7.5%2067-18.5t57.5-25v-120q-26%2014-57.5%2025t-67%2018.5Q600-528%20561-524t-81%204q-42%200-82-4t-75.5-11.5Q287-543%20256-554t-56-25v120q25%2014%2056%2025t66.5%2018.5Q358-408%20398-404t82%204Zm0%20200q46%200%2093.5-7t87.5-18.5q40-11.5%2067-26t32-29.5v-98q-26%2014-57.5%2025t-67%2018.5Q600-328%20561-324t-81%204q-42%200-82-4t-75.5-11.5Q287-343%20256-354t-56-25v99q5%2015%2031.5%2029t66.5%2025.5q40%2011.5%2088%2018.5t94%207Z%22%2F%3E%3C%2Fsvg%3E;" vertex="1">
+          <mxGeometry height="18" width="18" x="8" y="6" as="geometry" />
+        </mxCell>
+        <mxCell id="data-events" parent="band-data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8FAF3;strokeColor=#26c98c;fontColor=#1B8F63;fontFamily=Helvetica;fontSize=12;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Event Bus / Webhooks&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Outbound events to external&lt;br&gt;systems (async integration)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="112" width="460" x="30" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="data-stores" parent="band-data" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#E8FAF3;strokeColor=#26c98c;fontColor=#1B8F63;fontFamily=Helvetica;fontSize=12;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Data Stores&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Structured, cache &amp; object storage&lt;/font&gt;" vertex="1">
+          <mxGeometry height="112" width="460" x="530" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="data-observability" parent="band-data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8FAF3;strokeColor=#26c98c;fontColor=#1B8F63;fontFamily=Helvetica;fontSize=12;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Reporting &amp; Observability&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Metrics, logs, dashboards&lt;/font&gt;" vertex="1">
+          <mxGeometry height="112" width="460" x="1030" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="data-bi" parent="band-data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6F8;strokeColor=#c5c5c5;fontColor=#555555;fontFamily=Helvetica;fontSize=12;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;BI / Analytics Export&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font&gt;Exposed via Reporting API&lt;br&gt;for external BI tools&lt;/font&gt;" vertex="1">
+          <mxGeometry height="112" width="460" x="1530" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-aiorch-core" edge="1" parent="1" source="band-ai-orch" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;strokeColor=#1a50a3;fontFamily=Helvetica;fontSize=11;fontStyle=2;fontColor=#1a50a3;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="band-core" value="automation &amp; AI decisioning">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-core-channels" edge="1" parent="1" source="band-core" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;strokeColor=#929292;fontFamily=Helvetica;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="zone-channels" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="565" />
+              <mxPoint x="277" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-core-voice" edge="1" parent="1" source="band-core" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;strokeColor=#929292;fontFamily=Helvetica;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="zone-voice" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="565" />
+              <mxPoint x="792" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-core-ai" edge="1" parent="1" source="band-core" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;strokeColor=#929292;fontFamily=Helvetica;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="zone-ai" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="565" />
+              <mxPoint x="1307" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-core-crm" edge="1" parent="1" source="core-campaign" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;strokeColor=#929292;fontFamily=Helvetica;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.7114;entryY=0;entryDx=0;entryDy=0;" target="crm-framework" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-channels-data" edge="1" parent="1" source="zone-channels" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeWidth=2;strokeColor=#26c98c;fontFamily=Helvetica;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="band-data" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="277" y="963" />
+              <mxPoint x="1050" y="1035" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-voice-data" edge="1" parent="1" source="zone-voice" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeWidth=2;strokeColor=#26c98c;fontFamily=Helvetica;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="band-data" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792" y="963" />
+              <mxPoint x="1050" y="1035" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-ai-data" edge="1" parent="1" source="zone-ai" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeWidth=2;strokeColor=#26c98c;fontFamily=Helvetica;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="band-data" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1307" y="963" />
+              <mxPoint x="1050" y="1035" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-crm-data" edge="1" parent="1" source="zone-crm" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeWidth=2;strokeColor=#26c98c;fontFamily=Helvetica;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="band-data" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1822" y="963" />
+              <mxPoint x="1050" y="1035" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
