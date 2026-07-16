@@ -24,7 +24,10 @@ ai-standards/
 │   ├── specs/
 │   │   ├── DRAW_IO_STANDARDS.md
 │   │   └── styles/expertflow.json        # the `expertflow` style preset
-│   └── templates/                        # generic starter .drawio files
+│   ├── templates/                        # generic starter .drawio files
+│   ├── skill/                            # drawio-skill (MIT), vendored via git subtree — Claude Code toolset
+│   └── source/
+│       └── ef-drawio-standards.mdc       # Cursor rule — points at specs/ + style preset
 │
 ├── .github/
 │   └── copilot-instructions.md -> ../AGENTS.md    # symlink — GitHub Copilot

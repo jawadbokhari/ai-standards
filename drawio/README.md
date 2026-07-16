@@ -19,18 +19,25 @@ copy the update here too.
 | `specs/DRAW_IO_STANDARDS.md` | Canvas settings, layer/grouping rules, shape libraries, XML-authoring rules for LLMs (including the Layout & Alignment Checklist), file/folder naming conventions |
 | `specs/styles/expertflow.json` | The `expertflow` style preset — palette, shapes, fonts, edge styling. Marked `"default": true` so it applies automatically once linked into place. |
 | `templates/` | Generic starter `.drawio` files (entity-relationship, data-flow, sequence-flow, system-architecture, deployment, BPMN process flow, etc.) with no Expertflow-specific content |
+| `skill/` | [`drawio-skill`](https://github.com/Agents365-ai/drawio-skill) (MIT), vendored in via `git subtree` so Claude Code users get the full toolset with one clone — no separate install step, no external dependency at use-time |
+| `source/ef-drawio-standards.mdc` | Cursor rule (glob: `**/*.drawio`) — points Cursor at `specs/DRAW_IO_STANDARDS.md` and the style preset, same convention as `java/`, `angular/`, `node/` |
 
 ## Setup
 
+### Claude Code
+
 1. Install the draw.io desktop CLI (needed to render/export `.drawio` files):
    - macOS: `brew install --cask drawio`
-   - Windows/Linux: see the [drawio-skill install guide](https://github.com/Agents365-ai/drawio-skill/blob/main/docs/INSTALL_CLI.md)
+   - Windows/Linux: see [`skill/docs/INSTALL_CLI.md`](skill/docs/INSTALL_CLI.md)
 2. Install this repo as a Claude Code plugin (see the top-level [`README.md`](../README.md)):
-   ```
+
+   ```bash
    /plugin marketplace add expertflow/ai-standards
    ```
-3. Install the [`drawio-skill`](https://github.com/Agents365-ai/drawio-skill) Claude Code skill — this repo supplies the Expertflow-specific standard and style preset that skill reads, not the skill itself.
-4. Link the style preset into place (the skill reads presets from `~/.drawio-skill/styles/`):
+
+   The plugin surfaces `skill/skills/drawio-skill/SKILL.md` — the vendored skill — directly; no
+   separate skill install needed.
+3. Link the style preset into place (the skill reads presets from `~/.drawio-skill/styles/`):
    ```bash
    mkdir -p ~/.drawio-skill/styles
    ln -sf "$(pwd)/drawio/specs/styles/expertflow.json" ~/.drawio-skill/styles/expertflow.json
@@ -38,6 +45,29 @@ copy the update here too.
 
 Once set up, ask Claude Code for a diagram — it will apply the `expertflow` preset and follow
 `DRAW_IO_STANDARDS.md`.
+
+### Cursor
+
+Symlink this folder's `source/` into `.cursor/rules` the same way as the other stacks (see the
+top-level [`README.md`](../README.md) onboarding steps):
+
+```bash
+ln -sfn ../../.ai-standards/drawio/source .cursor/rules/drawio
+```
+
+Cursor doesn't run the `drawio-skill` toolset (that's Claude Code-specific) — the rule just points
+the agent at `DRAW_IO_STANDARDS.md` and the style preset so `.drawio` edits stay consistent with
+the standard even without the skill's automation.
+
+## Keeping the vendored skill current
+
+`skill/` is a `git subtree`, not a copy-paste. To pull upstream updates:
+
+```bash
+git subtree pull --prefix=drawio/skill https://github.com/Agents365-ai/drawio-skill.git main --squash
+```
+
+Do this periodically (upstream is under active development) rather than letting it drift silently.
 
 ## Working with real Expertflow diagrams
 
