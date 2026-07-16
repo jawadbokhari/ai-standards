@@ -1,0 +1,21 @@
+---
+description: Expertflow draw.io diagram standard — canvas/layer rules, naming, and the expertflow style preset
+globs: **/*.drawio
+alwaysApply: false
+---
+
+# Draw.io Diagrams
+
+Before creating or editing a `.drawio` file, read and follow:
+
+- `../specs/DRAW_IO_STANDARDS.md` — canvas settings, layer/grouping rules, shape libraries per
+  diagram type, file/folder naming, and the full LLM authoring + layout/alignment checklist
+- `../specs/styles/expertflow.json` — the `expertflow` style preset (palette, shapes, fonts, edge
+  styling). This is the single source of truth for visual styling — never hardcode colors/fonts
+  inline when the preset already defines a role for them.
+- `../templates/` — copy the matching starter template (see the decision tree in
+  `DRAW_IO_STANDARDS.md` §5.5) rather than authoring a `.drawio` file from scratch.
+
+This is a Cursor-facing pointer, not a duplicate — `DRAW_IO_STANDARDS.md` is the single canonical
+copy, also read by Claude Code via the `drawio-skill` integration described in
+[`../README.md`](../README.md). Keep edits in one place.

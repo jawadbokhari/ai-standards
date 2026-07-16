@@ -1,0 +1,103 @@
+<mxfile host="65bd71144e">
+    <diagram name="System Architecture" id="sa-template">
+        <mxGraphModel dx="1358" dy="669" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="sa-title" value="[Diagram Title]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=18;fontStyle=1;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="20" width="727" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-layer-client" value="Client / UI" style="swimlane;startSize=30;fillColor=#E3F2FD;strokeColor=#1565C0;fontColor=#1565C0;fontStyle=1;fontSize=11;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="170" width="727" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-client-1" value="[Web App / Agent Desk]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontColor=#1565C0;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-client" vertex="1">
+                    <mxGeometry x="50" y="40" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-client-2" value="[Mobile / Widget]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontColor=#1565C0;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-client" vertex="1">
+                    <mxGeometry x="270" y="40" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-client-3" value="[Unified Admin]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontColor=#1565C0;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-client" vertex="1">
+                    <mxGeometry x="490" y="40" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-layer-gateway" value="API Gateway" style="swimlane;startSize=30;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#E65100;fontStyle=1;fontSize=11;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="340" width="727" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-gateway-1" value="[API Gateway / APISIX]&#xa;Auth · Rate Limiting · Routing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#E65100;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-gateway" vertex="1">
+                    <mxGeometry x="213" y="35" width="300" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-layer-core" value="Core Services" style="swimlane;startSize=30;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#6A1B9A;fontStyle=1;fontSize=11;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="490" width="727" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-core-1" value="[Service A]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#6A1B9A;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-core" vertex="1">
+                    <mxGeometry x="30" y="50" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-core-2" value="[Service B]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#6A1B9A;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-core" vertex="1">
+                    <mxGeometry x="210" y="50" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-core-3" value="[Service C]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#6A1B9A;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-core" vertex="1">
+                    <mxGeometry x="390" y="50" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-core-4" value="[Service D]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#6A1B9A;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-core" vertex="1">
+                    <mxGeometry x="560" y="50" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-layer-data" value="Data / Storage" style="swimlane;startSize=30;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#2E7D32;fontStyle=1;fontSize=11;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="710" width="727" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-data-1" value="[Database]" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-data" vertex="1">
+                    <mxGeometry x="50" y="35" width="110" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-data-2" value="[Cache / Redis]" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-data" vertex="1">
+                    <mxGeometry x="210" y="35" width="110" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-data-3" value="[Message Queue]" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-data" vertex="1">
+                    <mxGeometry x="380" y="35" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-data-4" value="[Object Store / MinIO]" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-data" vertex="1">
+                    <mxGeometry x="560" y="35" width="130" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-layer-ext" value="External / 3rd-Party" style="swimlane;startSize=30;fillColor=#FAFAFA;strokeColor=#757575;fontColor=#424242;fontStyle=1;fontSize=11;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="890" width="727" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-ext-1" value="[CRM Connector]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#757575;fontColor=#424242;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-ext" vertex="1">
+                    <mxGeometry x="50" y="40" width="150" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-ext-2" value="[Channel Connector]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#757575;fontColor=#424242;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-ext" vertex="1">
+                    <mxGeometry x="250" y="40" width="150" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-ext-3" value="[External API]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#757575;fontColor=#424242;fontFamily=Helvetica;fontSize=10;" parent="sa-layer-ext" vertex="1">
+                    <mxGeometry x="450" y="40" width="150" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-edge-c1-gw" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=9;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="sa-client-1" target="sa-gateway-1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-edge-gw-core" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=9;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="sa-gateway-1" target="sa-core-2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-edge-core-data" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=9;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="sa-core-2" target="sa-data-1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-legend-title" value="Legend" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=10;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="1030" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-leg-client" value="Client / UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontColor=#1565C0;fontFamily=Helvetica;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="1055" width="115" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-leg-gw" value="API Gateway" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#E65100;fontFamily=Helvetica;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="175" y="1055" width="115" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-leg-core" value="Core Services" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#6A1B9A;fontFamily=Helvetica;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="1055" width="115" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-leg-data" value="Data / Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#2E7D32;fontFamily=Helvetica;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="425" y="1055" width="115" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-leg-ext" value="External / 3rd-Party" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#757575;fontColor=#424242;fontFamily=Helvetica;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="1055" width="130" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="sa-leg-warn" value="Warning / Critical" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#C62828;fontColor=#C62828;fontFamily=Helvetica;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="1088" width="130" height="25" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

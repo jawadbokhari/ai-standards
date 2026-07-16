@@ -19,6 +19,16 @@ ai-standards/
 │   └── <skill-name>/
 │       └── SKILL.md                      # cross-cutting Claude Code skills, auto-discovered by the plugin
 │
+├── drawio/
+│   ├── README.md                          # setup + how this relates to Diagrams_with_Draw.io
+│   ├── specs/
+│   │   ├── DRAW_IO_STANDARDS.md
+│   │   └── styles/expertflow.json        # the `expertflow` style preset
+│   ├── templates/                        # generic starter .drawio files
+│   ├── skill/                            # drawio-skill (MIT), vendored via git subtree — Claude Code toolset
+│   └── source/
+│       └── ef-drawio-standards.mdc       # Cursor rule — points at specs/ + style preset
+│
 ├── .github/
 │   └── copilot-instructions.md -> ../AGENTS.md    # symlink — GitHub Copilot
 │

@@ -13,3 +13,9 @@ See [`AGENTS.md`](AGENTS.md) for repository structure, per-tool consumption, and
 | `java/` | Spring Boot 3.5, Java 17, Mongo, Redis (Jedis), Artemis |
 | `angular/` | Angular 14, NgModule, Jest |
 | `node/` | Node 18+, Express, CommonJS |
+
+## Cross-cutting standards
+
+| Folder | What it covers |
+|--------|--------|
+| [`drawio/`](drawio/) | Draw.io diagram standard — style preset, generation rules, generic starter templates. See [`drawio/README.md`](drawio/README.md). |

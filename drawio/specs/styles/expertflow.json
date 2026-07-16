@@ -1,0 +1,47 @@
+{
+  "name": "expertflow",
+  "version": 1,
+  "default": true,
+  "source": { "type": "hand-authored" },
+  "confidence": "high",
+  "palette": {
+    "primary":   { "fillColor": "#ECF3FF", "strokeColor": "#1a50a3" },
+    "success":   { "fillColor": "#E8FAF3", "strokeColor": "#26c98c" },
+    "warning":   { "fillColor": "#F4F6F8", "strokeColor": "#c5c5c5" },
+    "accent":    { "fillColor": "#FFF3E0", "strokeColor": "#E65100" },
+    "danger":    { "fillColor": "#FFE9E9", "strokeColor": "#ff6767" },
+    "neutral":   { "fillColor": "#F4F6F8", "strokeColor": "#c5c5c5" },
+    "secondary": { "fillColor": "#E3F2FD", "strokeColor": "#1565C0" }
+  },
+  "roles": {
+    "service":  "primary",
+    "database": "success",
+    "queue":    "success",
+    "gateway":  "accent",
+    "error":    "danger",
+    "external": "neutral"
+  },
+  "shapes": {
+    "service":   "rounded=1",
+    "database":  "shape=mxgraph.flowchart.database",
+    "queue":     "rounded=1",
+    "decision":  "rhombus",
+    "external":  "rounded=1",
+    "container": "swimlane;startSize=30"
+  },
+  "font": {
+    "fontFamily": "Helvetica",
+    "fontSize": 14,
+    "titleFontSize": 20,
+    "titleBold": true
+  },
+  "edges": {
+    "style": "edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11",
+    "arrow": "endArrow=classic;endFill=1",
+    "dashedFor": ["async", "event", "webhook", "optional", "dependency"]
+  },
+  "extras": {
+    "sketch": false,
+    "globalStrokeWidth": 1
+  }
+}
