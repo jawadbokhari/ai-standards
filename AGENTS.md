@@ -63,8 +63,6 @@ ai-standards/
 
 Each `.mdc` file already carries the Cursor frontmatter (`description`, `globs`, `alwaysApply`) inline — there is no separate `.meta` file and no `sync.sh` generation step. Cursor reads `.mdc` files directly; every other tool reads `AGENTS.md`.
 
-**Why `CLAUDE.md` is a plain pointer file, not a symlink:** symlinks require Developer Mode or admin rights on Windows, and Git for Windows can check them out as plain text files containing the target path instead of a real link if `core.symlinks` isn't configured. A hard link avoids that but silently goes stale after a clone, since Git doesn't preserve hard-link relationships across checkout — it commits file *content*, not the link itself. A one-line pointer file (`CLAUDE.md` says "read `AGENTS.md`") sidesteps both problems: it's an ordinary text file on every OS, and it's always up to date because it never duplicates content.
-
 ---
 
 ## How each tool consumes this repo
