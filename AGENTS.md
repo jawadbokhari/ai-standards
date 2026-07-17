@@ -10,7 +10,7 @@
 ```
 ai-standards/
 ├── AGENTS.md                             # cross-tool universal standard (this file)
-├── CLAUDE.md -> AGENTS.md                 # Claude Code bridge — symlink
+├── CLAUDE.md                             # Claude Code bridge — hard link to AGENTS.md (not a symlink; see note below)
 │
 ├── .claude-plugin/
 │   └── plugin.json                       # makes this repo a Claude plugin
@@ -62,6 +62,20 @@ ai-standards/
 ```
 
 Each `.mdc` file already carries the Cursor frontmatter (`description`, `globs`, `alwaysApply`) inline — there is no separate `.meta` file and no `sync.sh` generation step. Cursor reads `.mdc` files directly; every other tool reads `AGENTS.md`.
+
+**Why `CLAUDE.md` is a hard link, not a symlink:** symlinks require Developer Mode or admin rights on Windows, and Git for Windows can check them out as plain text files containing the target path instead of a real link if `core.symlinks` isn't configured. A hard link needs neither — `CLAUDE.md` and `AGENTS.md` share the same inode, so either filename always reflects the current content.
+
+Git does not preserve hard-link relationships across clone/checkout — it commits file *content*, so a fresh clone yields two independent regular files that happen to match at that commit. If `AGENTS.md` is edited without recreating the link, `CLAUDE.md` will silently go stale. Recreate the link after cloning or pulling changes to `AGENTS.md`:
+
+```bash
+# macOS/Linux
+ln -f AGENTS.md CLAUDE.md
+```
+
+```cmd
+:: Windows
+mklink /H CLAUDE.md AGENTS.md
+```
 
 ---
 
