@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ai-standards",
+  "description": "Expertflow cross-tool AI coding agent standards (Java/Angular/Node) marketplace",
+  "owner": {
+    "name": "Expertflow"
+  },
+  "plugins": [
+    {
+      "name": "expertflow-standards",
+      "description": "Expertflow cross-tool AI coding agent standards (Java/Angular/Node)",
+      "version": "1.0.0",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
