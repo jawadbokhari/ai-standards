@@ -6,8 +6,6 @@ This repo replaces [`ef-coding-standards`](https://gitlab.expertflow.com/general
 
 See [`AGENTS.md`](AGENTS.md) for repository structure, per-tool consumption, and onboarding instructions.
 
-## Maintainer notes
-
 - **`CLAUDE.md` is a plain pointer file, not a symlink** — unlike `.github/copilot-instructions.md`. Don't "fix" this inconsistency by re-symlinking it: symlinks need Developer Mode/admin rights on Windows and Git for Windows can check them out as plain text containing the target path instead of a real link. A hard link avoids that but goes stale silently, since Git doesn't preserve hard-link relationships across clone/checkout. The pointer file works identically on every OS and never goes stale.
 
 ## Stacks
