@@ -1,5 +1,35 @@
 # 使用方式
 
+## 统一语义工作流（3.0）
+
+```bash
+# 不启动 GUI，先检查本机能力
+python3 skills/drawio-skill/scripts/diagramctl.py doctor
+
+# 构建并保留可复用的语义模型
+python3 skills/drawio-skill/scripts/diagramctl.py build ./infra --from terraform \
+  --group --ir-output architecture.ir.json -o architecture.drawio
+
+# 源变化后同步，同时保留手工位置与样式
+python3 skills/drawio-skill/scripts/diagramctl.py sync architecture.drawio ./infra \
+  --from terraform -o architecture.next.drawio
+
+# 投影多视图、执行契约、体检、故障模拟并发布
+python3 skills/drawio-skill/scripts/diagramctl.py views architecture.ir.json \
+  --views executive,system,deployment,dataflow,security -o views.drawio
+python3 skills/drawio-skill/scripts/diagramctl.py test architecture.drawio --rules policy.yml
+python3 skills/drawio-skill/scripts/diagramctl.py review architecture.drawio -o review.md
+python3 skills/drawio-skill/scripts/diagramctl.py whatif architecture.ir.json \
+  --fail gateway --drawio gateway-failure.drawio -o impact.json
+python3 skills/drawio-skill/scripts/diagramctl.py story architecture.ir.json \
+  -o walkthrough.html
+```
+
+模型、规则、来源追溯和无障碍行为详见 `references/diagram-ir.md` 与
+`references/semantic-workflows.md`。
+完整的可重建工作流见
+[`examples/architecture-studio/`](../examples/architecture-studio/)。
+
 [English](USAGE.md)
 
 直接描述你想要的图表：
@@ -87,3 +117,14 @@ python3 scripts/aiicons.py "openai" --embed     # 内联为自包含 data URI
 ## 在 CI 中渲染
 
 在 GitHub Actions 里无头地重新生成、校验（`validate.py --strict`）并导出图表 —— 走 xvfb 下的 draw.io 桌面版或 Docker REST 渲染器。完整 workflow 配方见 [CI_CN.md](CI_CN.md)。
+
+## MCP、CI 门禁与提示词手册
+
+- **MCP 宿主**（Claude Desktop、Cursor、VS Code、Codex）：注册
+  `scripts/diagramctl_mcp.py` —— 配置配方见
+  [`../skills/drawio-skill/references/mcp.md`](../skills/drawio-skill/references/mcp.md)。
+- **每个 PR 强制执行架构规则**：`drawio-architecture-test` action 无需安装
+  draw.io/Xvfb 即可门禁 Diagram IR —— 见
+  [`../skills/drawio-skill/references/ci-gate.md`](../skills/drawio-skill/references/ci-gate.md)。
+- **各工作流的提示词模式**：
+  [`../skills/drawio-skill/references/cookbook.md`](../skills/drawio-skill/references/cookbook.md)。
