@@ -1,5 +1,35 @@
 # Usage
 
+## Unified semantic workflow (3.0)
+
+```bash
+# Discover capabilities without launching the GUI
+python3 skills/drawio-skill/scripts/diagramctl.py doctor
+
+# Build and retain a reusable semantic sidecar
+python3 skills/drawio-skill/scripts/diagramctl.py build ./infra --from terraform \
+  --group --ir-output architecture.ir.json -o architecture.drawio
+
+# Keep manual positions/styles while source changes
+python3 skills/drawio-skill/scripts/diagramctl.py sync architecture.drawio ./infra \
+  --from terraform -o architecture.next.drawio
+
+# Project views, enforce a contract, review, simulate, and publish
+python3 skills/drawio-skill/scripts/diagramctl.py views architecture.ir.json \
+  --views executive,system,deployment,dataflow,security -o views.drawio
+python3 skills/drawio-skill/scripts/diagramctl.py test architecture.drawio --rules policy.yml
+python3 skills/drawio-skill/scripts/diagramctl.py review architecture.drawio -o review.md
+python3 skills/drawio-skill/scripts/diagramctl.py whatif architecture.ir.json \
+  --fail gateway --drawio gateway-failure.drawio -o impact.json
+python3 skills/drawio-skill/scripts/diagramctl.py story architecture.ir.json \
+  -o walkthrough.html
+```
+
+See `references/diagram-ir.md` and `references/semantic-workflows.md` for the
+model, rule catalog, provenance, and accessibility behavior.
+The complete reproducible workflow is in
+[`examples/architecture-studio/`](../examples/architecture-studio/).
+
 [中文](USAGE_CN.md)
 
 Just describe what you want:
@@ -86,3 +116,15 @@ python3 scripts/aiicons.py "openai" --embed     # self-contained data URI
 ## Rendering in CI
 
 Regenerate, lint (`validate.py --strict`), and export diagrams headlessly in GitHub Actions — via draw.io desktop under `xvfb` or the Docker REST renderer. Full workflow recipes in [CI.md](CI.md).
+
+## MCP, CI gates, and the prompt cookbook
+
+- **MCP hosts** (Claude Desktop, Cursor, VS Code, Codex): register
+  `scripts/diagramctl_mcp.py` — recipes in
+  [`../skills/drawio-skill/references/mcp.md`](../skills/drawio-skill/references/mcp.md).
+- **Architecture rules on every PR**: the
+  `drawio-architecture-test` action gates Diagram IR files with no
+  draw.io/Xvfb install —
+  [`../skills/drawio-skill/references/ci-gate.md`](../skills/drawio-skill/references/ci-gate.md).
+- **Prompt patterns** that get the best results per workflow:
+  [`../skills/drawio-skill/references/cookbook.md`](../skills/drawio-skill/references/cookbook.md).
