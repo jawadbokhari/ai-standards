@@ -2,5 +2,5 @@
   "name": "expertflow-standards",
   "version": "1.0.0",
   "description": "Expertflow cross-tool AI coding agent standards (Java/Angular/Node)",
-  "author": "Expertflow"
+  "author": { "name": "Expertflow" }
 }
