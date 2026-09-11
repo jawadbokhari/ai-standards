@@ -12,6 +12,14 @@ of truth — it's where the standard is actually edited and where real Expertflo
 stays private. When `specs/DRAW_IO_STANDARDS.md`, the style preset, or the templates change there,
 copy the update here too.
 
+## Which repo do I use?
+
+| You are... | Use... |
+|---|---|
+| Any engineer who wants Expertflow-branded draw.io diagrams | **This repo**, via `/plugin marketplace add expertflow/ai-standards` below. That's the whole setup. |
+| Editing the standard itself, or working with real (confidential) Expertflow architecture diagrams | The private [`Diagrams_with_Draw.io`](https://github.com/expertflow/Diagrams_with_Draw.io) repo instead |
+| — | **Never** install the `drawio` skill/plugin directly from Agent365's `365-skills` marketplace. It gives you the raw upstream tool with no Expertflow preset, no `DRAW_IO_STANDARDS.md`, and no version pinning, so your diagrams won't match anyone else's. If you've already done this, uninstall it and switch to the marketplace add below instead. |
+
 ## Contents
 
 | Path | What it is |
@@ -68,6 +76,8 @@ git subtree pull --prefix=drawio/skill https://github.com/Agents365-ai/drawio-sk
 ```
 
 Do this periodically (upstream is under active development) rather than letting it drift silently.
+Last pulled: 2026-09-11, upstream commit `cfe6131` (added `diagramctl.py`, an MCP server, and the
+diagram-IR sync/test/policy tooling — a large jump from the previously vendored 1.34.0).
 
 ## Working with real Expertflow diagrams
 
